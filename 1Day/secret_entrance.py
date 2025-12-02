@@ -30,3 +30,21 @@ def convert_input_line_to_move(input:str) -> Move:
     move = (direction, number_of_moves)
 
     return move
+def turn_dial(current_possition:int, move:Move) -> int:
+    if move[0] == "R":
+        current_possition += move[1] 
+    elif move[0] == "L":
+        current_possition -= move[1] 
+    current_possition = simulate_circular_behavior(current_possition)
+
+    return (current_possition)
+
+def simulate_circular_behavior(current_possition) -> int:
+    if current_possition > DIAL_RANGE[1]:
+        current_possition -= 100
+    elif current_possition < DIAL_RANGE[0]:
+        current_possition += 100
+    return current_possition
+
+if __name__ == "__main__":
+    main()
