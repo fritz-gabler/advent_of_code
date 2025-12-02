@@ -11,3 +11,11 @@ def get_puzzel_input() -> list[str]:
             puzzel_input.append(line)
 
     return puzzel_input
+def create_moves(puzzle_input: list[str]) -> list[Move]:
+    moves:list[Move] = []
+
+    for line_input in puzzle_input:
+        move = convert_input_line_to_move(line_input)
+        moves.append(move)
+    
+    return moves
