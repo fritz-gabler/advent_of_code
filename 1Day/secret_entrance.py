@@ -19,3 +19,14 @@ def create_moves(puzzle_input: list[str]) -> list[Move]:
         moves.append(move)
     
     return moves
+def convert_input_line_to_move(input:str) -> Move:
+    direction:str
+    number_of_moves:int
+    move: Move
+
+    direction = input[0]
+    input = input.replace(direction, "")
+    number_of_moves = int(input)
+    move = (direction, number_of_moves)
+
+    return move
