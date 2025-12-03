@@ -4,6 +4,7 @@ Direction = Literal["L", "R"]
 
 Move = tuple[Direction, int]
 DIAL_RANGE:tuple[int, int] = (0, 99)
+DIAL_SIZE:int = DIAL_RANGE[1] - DIAL_RANGE[0] + 1
 
 
 def main():
@@ -61,15 +62,13 @@ def turn_dial(current_possition:int, move:Move) -> int:
     elif move[0] == "L":
         current_possition -= move[1] 
     current_possition = simulate_circular_behavior(current_possition)
-
     return (current_possition)
 
-def simulate_circular_behavior(current_possition) -> int:
-    if current_possition > DIAL_RANGE[1]:
-        current_possition -= 100
-    elif current_possition < DIAL_RANGE[0]:
-        current_possition += 100
-    return current_possition
+def simulate_circular_behavior(current_position:int) -> int:
+    return current_position % DIAL_SIZE
+
+
+
 
 if __name__ == "__main__":
     main()
