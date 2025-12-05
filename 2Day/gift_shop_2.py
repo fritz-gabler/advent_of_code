@@ -67,7 +67,6 @@ def get_invalid_ids_from_range(all_ids_from_range: list[str]) -> list[str]:
     for id_str in all_ids_from_range:
         match = pattern.fullmatch(id_str)
         if match:
-            print(match)  # show test output
             invalid_ids.append(id_str)
 
     return invalid_ids
